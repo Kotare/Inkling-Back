@@ -1,7 +1,7 @@
 {
-  "name": "apitest",
+  "name": "crudbrain",
   "version": "0.0.0",
-  "description": "apitest",
+  "description": "CRUD, only for your brain.",
   "main": "server.js",
   "scripts": {
     "test": "test"
