@@ -22,7 +22,14 @@ app.use('/api/v1', wombats);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mongo
-mongoose.connect('mongodb://localhost/crudbrain');
+// MONGOLAB_URI: mongodb://heroku_app37522356:gks5qejjcpu7s9ufqmv2ko7u6n@ds043012.mongolab.com:43012/heroku_app37522356
+app.configure('development', function () {
+  mongoose.connect('mongodb://localhost/crudbrain');
+});
+
+app.configure('production', function () {
+  mongoose.connect('mongodb://' + process.env.MONGOLAB_URI + '/crudbrain');
+});
 
 // Start
 app.listen(port);

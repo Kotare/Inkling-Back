@@ -6,7 +6,7 @@ var Wombat = require('../models/wombat');
 // GET /wombats
 router.route('/wombats')
 
-  . get(function (req, res) {
+  .get(function (req, res) {
     Wombat.find(function (err, wombats) {
       if (err)
         res.send(err);
