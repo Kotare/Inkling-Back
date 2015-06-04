@@ -5,6 +5,10 @@ var express     = require('express'),
     app         = express(),
     port        = process.env.PORT || 3000;
 
+// Output (NB: must come before app.use(... routes))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // Routes
 var middleware = require('./routes/middleware');
 var wombats = require('./routes/wombats');
@@ -13,9 +17,6 @@ var wombats = require('./routes/wombats');
 app.use('/api/v1', middleware);
 app.use('/api/v1', wombats);
 
-// Output
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 // Static files in public
 app.use(express.static(path.join(__dirname, 'public')));
