@@ -41,56 +41,115 @@ Request: empty body.
 Response:
 ```javascript
 {
-  "bubbles": [
-    {
-      "bubbleId": "98723hooih2348", // uuid generated in client - must be unique!
-      "heading": "idea#291"
-      "content": "help, I'm stuck in a bubble",
-      "location": {
-        "top": 91, //px
-        "left": 87 //px
-      },
-      "size": {
-        "top": 91, //px
-        "left": 87 //px
-      }
-    },
-    ...
-  ],
+  "_id": "55710b225f229a074eb5fddd",
+  "__v": 2,
   "connections": [
     {
       "startBubbleId": "978351yedfg980",
-      "endBubbleId": "9788923edfg932"
-    },
+      "endBubbleId": "9788923edfg932",
+      "_id": "55711c8cbc28c30d52fdec1c" // mongo id key
+    }
+    ...
+  ],
+  "bubbles": [
+    {
+      "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
+      "heading": "idea#291",
+      "content": "help, I'm stuck in a bubble",
+      "_id": "5571116e1578f5ea505fe932", // mongo id key
+      "size": {
+        "top": 91,
+        "left": 87
+      },
+      "location": {
+        "top": 91,
+        "left": 87
+      }
+    }
     ...
   ]
 }
 ```
 ####PUT /boards/:id
-Request & response:
+Request:
 ```javascript
 {
-  "bubbles": [
-    {
-      "bubbleId": "98723hooih2348", // uuid generated in client - must be unique!
-      "heading": "idea#291"
-      "content": "help, I'm stuck in a bubble",
-      "location": {
-        "top": 91, //px
-        "left": 87 //px
-      },
-      "size": {
-        "top": 91, //px
-        "left": 87 //px
-      }
-    },
-    ...
-  ],
+  "_id": "55710b225f229a074eb5fddd", // = same as url :id
+  "__v": 2,
   "connections": [
     {
       "startBubbleId": "978351yedfg980",
-      "endBubbleId": "9788923edfg932"
+      "endBubbleId": "9788923edfg932",
+      "_id": "55711c8cbc28c30d52fdec1c" // leave out if creating connection, see below
     },
+    {
+      "startBubbleId": "978wer9io890weur0",
+      "endBubbleId": "klsooiuiosdfsd",
+      // no _id for new connection (generated in server by mongo)
+    }
+    ...
+  ],
+  "bubbles": [
+    {
+      "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
+      "heading": "idea#291",
+      "content": "help, I'm stuck in a bubble",
+      "_id": "5571116e1578f5ea505fe932", // leave out if creating bubble, see below
+      "size": {
+        "top": 91,
+        "left": 87
+      },
+      "location": {
+        "top": 91,
+        "left": 87
+      }
+    },
+    {
+      "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
+      "heading": "idea#291",
+      "content": "help, I'm stuck in a bubble",
+      // no _id for new bubble (generated in server by mongo)
+      "size": {
+        "top": 91,
+        "left": 87
+      },
+      "location": {
+        "top": 91,
+        "left": 87
+      }
+    }
+    ...
+  ]
+}
+```
+Response:
+```javascript
+{
+  "_id": "55710b225f229a074eb5fddd",
+  "__v": 2,
+  "connections": [
+    {
+      "startBubbleId": "978351yedfg980",
+      "endBubbleId": "9788923edfg932",
+      "_id": "55711c8cbc28c30d52fdec1c" // mongo id key
+    }
+    ...
+  ],
+  "bubbles": [
+    {
+      "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
+      "heading": "idea#291",
+      "content": "help, I'm stuck in a bubble",
+      "_id": "5571116e1578f5ea505fe932", // mongo id key
+      "size": {
+        "top": 91,
+        "left": 87
+      },
+      "location": {
+        "top": 91,
+        "left": 87
+      }
+    }
     ...
   ]
 }
