@@ -11,18 +11,16 @@ app.use(bodyParser.json());
 
 // Routes
 var middleware = require('./routes/middleware');
-var wombats = require('./routes/wombats');
+var boards = require('./routes/boards');
 
 // Prefix
 app.use('/api/v1', middleware);
-app.use('/api/v1', wombats);
-
+app.use('/api/v1', boards);
 
 // Static files in public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mongo
-// MONGOLAB_URI: mongodb://heroku_app37522356:gks5qejjcpu7s9ufqmv2ko7u6n@ds043012.mongolab.com:43012/heroku_app37522356
 if ('development' === app.get('env')) {
   mongoose.connect('mongodb://localhost/crudbrain');
 } else {
