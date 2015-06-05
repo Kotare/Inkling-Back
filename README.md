@@ -15,7 +15,7 @@ The API node server for CRUDbrain!
 The first mobile & human-friendly mind mapper
 
 ## Found @:
-https://crudbrain.herokuapp.com
+https://crudbrain.herokuapp.com/api/v1
 
 ## API Documentation
 ###/boards
