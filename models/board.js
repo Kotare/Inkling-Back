@@ -21,4 +21,6 @@ var boardSchema = new Schema({
 	}]
 });
 
+boardSchema.set('versionKey', false);
+
 module.exports = mongoose.model('Board', boardSchema);
