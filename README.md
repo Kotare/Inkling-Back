@@ -43,7 +43,7 @@ Response:
 {
   "bubbles": [
     {
-      "_id": "98723hooih2348", // uuid generated in client - must be unique!
+      "bubbleId": "98723hooih2348", // uuid generated in client - must be unique!
       "heading": "idea#291"
       "content": "help, I'm stuck in a bubble",
       "location": {
@@ -59,8 +59,8 @@ Response:
   ],
   "connections": [
     {
-      "bubble-1_id": "978351yedfg980",
-      "bubble-2_id": "9788923edfg932"
+      "startBubbleId": "978351yedfg980",
+      "endBubbleId": "9788923edfg932"
     },
     ...
   ]
@@ -72,7 +72,7 @@ Request & response:
 {
   "bubbles": [
     {
-      "_id": "98723hooih2348",
+      "bubbleId": "98723hooih2348", // uuid generated in client - must be unique!
       "heading": "idea#291"
       "content": "help, I'm stuck in a bubble",
       "location": {
@@ -88,8 +88,8 @@ Request & response:
   ],
   "connections": [
     {
-      "bubble-1_id": "978351yedfg980",
-      "bubble-2_id": "9788923edfg932"
+      "startBubbleId": "978351yedfg980",
+      "endBubbleId": "9788923edfg932"
     },
     ...
   ]
