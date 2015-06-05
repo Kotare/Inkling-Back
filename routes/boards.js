@@ -30,12 +30,15 @@ router.route('/boards/:boardId')
     });
   })
 
+  // PUT /boards/12345
   .put(function (req, res) {
     Board.findById(req.params.boardId, function (err, board) {
       if (err)
         res.send(err)
-
-      board.name = req.body.name;
+      
+      for (prop in req.body) {
+        board[prop] = req.body[prop];
+      }
 
       board.save(function (err) {
         if (err)
