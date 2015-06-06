@@ -3,7 +3,7 @@ var express     = require('express'),
     path        = require('path'),
     mongoose    = require('mongoose'),
     app         = express(),
-    port        = process.env.PORT || 3000;
+    port        = process.env.PORT || 5000;
 
 // Routes
 var middleware  = require('./routes/middleware'),
