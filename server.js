@@ -5,15 +5,18 @@ var express     = require('express'),
     app         = express(),
     port        = process.env.PORT || 3000;
 
-// Output (NB: must come before app.use(... routes))
+// Routes
+var middleware  = require('./routes/middleware'),
+    users       = require('./routes/users'),
+    boards      = require('./routes/boards'),
+    auth        = require('./routes/auth');
+
+// Output (NB: must come BEFORE app.use(... routes))
 app.use(bodyParser.json());
 
-// Routes
-var middleware = require('./routes/middleware');
-var boards = require('./routes/boards');
-
-// Prefix
+// Prefix (note no prefix for auth)
 app.use('/api/v1', middleware);
+app.use('/api/v1', users);
 app.use('/api/v1', boards);
 
 // Static files in public
