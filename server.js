@@ -13,8 +13,8 @@ var middleware  = require('./routes/middleware'),
 app.use(bodyParser.json());
 
 // Prefix (note no prefix for auth)
-//app.use('/api/v1', middleware);
-//app.use('/api/v1', boards);
+app.use('/api/v1', middleware);
+app.use('/api/v1', boards);
 
 // Temporary fake prefix for facebook testing
 app.use('/fbtest', middleware);

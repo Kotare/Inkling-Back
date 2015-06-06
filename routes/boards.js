@@ -5,6 +5,11 @@ var Board = require('../models/board');
 
 router.route('/boards')
 
+  // GET /boards
+  .get(function (req, res) {
+    res.json({message: "Fake GET index route!"});
+  })
+
   // POST /boards
   .post(function (req, res) {
     var board = new Board();

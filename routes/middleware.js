@@ -13,11 +13,14 @@ var fbOptions = {
   //fbOptions.callbackURL = 'http://localhost:5000/auth/facebook/callback';
 //}
 
-router.use('/fbtest/boards', facebookAuth);
-router.use('/fbtest/boards/:id', facebookAuth);
+router.use('/boards', facebookAuth); 
+router.use('/boards/:id', facebookAuth);
            
 function facebookAuth(req, res, next) {
   console.log("----- FACEBOOK MIDDLEWARE -----");
+  console.log('http://graph.facebook.com/debug_token?' +
+          'input_token=' + accessToken +
+          '&access_token=' + fbOptions.appToken);
   var accessToken = req.get('Authentication');
   if (accessToken) {
     console.log(accessToken);
@@ -46,7 +49,7 @@ function checkToken(accessToken, fbOptions) {
       if (!error && response.StatusCode === 200) {
         return JSON.parse(body);
       }
-      return nil;
+      return null;
     }
   );
 }
