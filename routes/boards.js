@@ -1,5 +1,4 @@
 var express  = require('express'),
-    passport = require('passport'),
     router   = express.Router();
 
 var Board = require('../models/board');
@@ -7,7 +6,7 @@ var Board = require('../models/board');
 router.route('/boards')
 
   // POST /boards
-  .post(passport.authenticate('bearer', { session: false }), function (req, res) {
+  .post(function (req, res) {
     var board = new Board();
 
     board.save(function (err) {
@@ -22,16 +21,17 @@ router.route('/boards')
 router.route('/boards/:boardId')
 
   // GET /boards/12345
-  .get(passport.authenticate('bearer', { session: false }), function(req, res) {
+  .get(function(req, res) {
     Board.findById(req.params.boardId, function (err, board) {
       if (err)
         res.send(err);
+
       res.json(board);
     });
   })
 
   // PUT /boards/12345
-  .put(passport.authenticate('bearer', { session: false }), function (req, res) {
+  .put(function (req, res) {
     Board.findById(req.params.boardId, function (err, board) {
       if (err)
         res.send(err)

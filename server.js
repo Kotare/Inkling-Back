@@ -7,17 +7,18 @@ var express     = require('express'),
 
 // Routes
 var middleware  = require('./routes/middleware'),
-    users       = require('./routes/users'),
-    boards      = require('./routes/boards'),
-    auth        = require('./routes/auth');
+    boards      = require('./routes/boards');
 
 // Output (NB: must come BEFORE app.use(... routes))
 app.use(bodyParser.json());
 
 // Prefix (note no prefix for auth)
-app.use('/api/v1', middleware);
-app.use('/api/v1', users);
-app.use('/api/v1', boards);
+//app.use('/api/v1', middleware);
+//app.use('/api/v1', boards);
+
+// Temporary fake prefix for facebook testing
+app.use('/fbtest', middleware);
+app.use('/fbtest', boards);
 
 // Static files in public
 app.use(express.static(path.join(__dirname, 'public')));
