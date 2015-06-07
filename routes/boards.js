@@ -12,15 +12,27 @@ router.route('/boards')
 
   // POST /boards
   .post(function (req, res) {
-    var board = new Board();
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
+      if (err) {
+        res.json(err);
+      } else if (board) {
+        // 409: request could not be completed due to a conflict with 
+        // the current state of the resource
+        res.status(409).json({ message: "Board already exists." });
+      } else {
 
-    board.save(function (err) {
-      if (err)
-        res.send(err);
+        var board = new Board();
+        board.fbId = req.fbUser;
+        board.save(function (err) {
+          if (err) {
+            res.send(err);
+          } else {
+            res.json(board);
+          }
+        });
 
-      res.json(board);
+      }
     });
-
   });
 
 router.route('/boards/:boardId')

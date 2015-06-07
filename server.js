@@ -6,22 +6,18 @@ var express     = require('express'),
     port        = process.env.PORT || 5000;
 
 // Routes
-var middleware  = require('./routes/middleware'),
-    boards      = require('./routes/boards');
+var facebookAuth  = require('./routes/facebookAuth'),
+    boards        = require('./routes/boards');
 
 // Output (NB: must come BEFORE app.use(... routes))
 app.use(bodyParser.json());
 
-// Prefix (note no prefix for auth)
-app.use('/api/v1', middleware);
+// Prefix
+app.use('/api/v1', facebookAuth);
 app.use('/api/v1', boards);
 
-// Temporary fake prefix for facebook testing
-app.use('/fbtest', middleware);
-app.use('/fbtest', boards);
-
 // Static files in public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Mongo
 if ('development' === app.get('env')) {
