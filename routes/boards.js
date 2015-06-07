@@ -50,6 +50,8 @@ router.route('/boards/:boardId')
   // PUT /boards/12345
   .put(function (req, res) {
     Board.findById(req.params.boardId, function (err, board) {
+      console.log("bubbles: ", board.bubbles);
+      console.log("connections: ", board.connections);
       if (err)
         res.send(err)
       
