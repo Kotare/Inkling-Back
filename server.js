@@ -6,14 +6,14 @@ var express     = require('express'),
     port        = process.env.PORT || 5000;
 
 // Routes
-var facebookAuth  = require('./routes/facebookAuth'),
-    boards        = require('./routes/boards');
+//var facebookAuth  = require('./routes/facebookAuth'),
+var boards        = require('./routes/boards');
 
 // Output (NB: must come BEFORE app.use(... routes))
 app.use(bodyParser.json());
 
 // Prefix
-app.use('/api/v1', facebookAuth);
+//app.use('/api/v1', facebookAuth);
 app.use('/api/v1', boards);
 
 // Static files in public
