@@ -50,13 +50,11 @@ router.route('/boards/:boardId')
   // PUT /boards/12345
   .put(function (req, res) {
     Board.findById(req.params.boardId, function (err, board) {
-      console.log("---- BOARD ----");
       console.log(board);
       if (err)
         res.send(err)
       
       for (prop in req.body) {
-        console.log(prop + " : " + board[prop] + ", " + req.body[prop]);
         board[prop] = req.body[prop];
       }
 
