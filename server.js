@@ -3,21 +3,35 @@ var express     = require('express'),
     path        = require('path'),
     mongoose    = require('mongoose'),
     app         = express(),
-    port        = process.env.PORT || 3000;
-
-// Output (NB: must come before app.use(... routes))
-app.use(bodyParser.json());
+    port        = process.env.PORT || 5000;
 
 // Routes
-var middleware = require('./routes/middleware');
-var boards = require('./routes/boards');
+var facebookAuth  = require('./routes/facebookAuth'), 
+    boards        = require('./routes/boards');
+
+// Output (NB: must come BEFORE app.use(... routes))
+app.use(bodyParser.json());
+
+// CORS
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 
+    'Origin, X-Requested-With, Content-Type, Accept, Authentication, Content-Length');
+
+  if ('OPTIONS' === req.method) {
+    res.sendStatus(200);
+  }
+
+  next();
+});
 
 // Prefix
-app.use('/api/v1', middleware);
+app.use('/api/v1', facebookAuth);
 app.use('/api/v1', boards);
 
 // Static files in public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Mongo
 if ('development' === app.get('env')) {

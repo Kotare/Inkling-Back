@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var boardSchema = new Schema({
+  fbId: String,
 	bubbles: [{
 		bubbleId: String,
 		heading: String,
