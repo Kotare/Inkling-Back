@@ -18,9 +18,7 @@ router.route('/boards')
       } else if (board) {
         // 409: request could not be completed due to a conflict with 
         // the current state of the resource
-        // res.status(409).json({ message: "Board already exists." });
-        console.log('409??: ', board);
-        // res.json(board)
+         res.status(409).json({ message: "Board already exists." });
       } else {
         var board = new Board();
         board.fbId = req.fbUser;
