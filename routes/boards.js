@@ -38,7 +38,7 @@ router.route('/boards/:boardId')
   // GET /boards/12345
   .get(function(req, res) {
     Board.findOne({ fbId: req.fbUser }, function (err, board) {
-      if (err)
+      if (err) 
         res.send(err);
 
       res.json(board);
