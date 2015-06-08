@@ -12,17 +12,16 @@ router.route('/boards')
 
   // POST /boards
   .post(function (req, res) {
-    //Board.findOne({ fbId: req.fbUser }, function (err, board) {
-      //if (err) {
-        //res.json(err);
-      //} else if (board) {
-        //// 409: request could not be completed due to a conflict with 
-        //// the current state of the resource
-        //res.status(409).json({ message: "Board already exists." });
-      //} else {
-
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
+      if (err) {
+        res.json(err);
+      } else if (board) {
+        // 409: request could not be completed due to a conflict with 
+        // the current state of the resource
+         res.status(409).json({ message: "Board already exists." });
+      } else {
         var board = new Board();
-        //board.fbId = req.fbUser;
+        board.fbId = req.fbUser;
         board.save(function (err) {
           if (err) {
             res.send(err);
@@ -30,17 +29,16 @@ router.route('/boards')
             res.json(board);
           }
         });
-
-      //}
+      }
     });
-  //});
+  });
 
 router.route('/boards/:boardId')
 
   // GET /boards/12345
   .get(function(req, res) {
-    Board.findById(req.params.boardId, function (err, board) {
-      if (err)
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
+      if (err) 
         res.send(err);
 
       res.json(board);
@@ -49,8 +47,7 @@ router.route('/boards/:boardId')
 
   // PUT /boards/12345
   .put(function (req, res) {
-    Board.findById(req.params.boardId, function (err, board) {
-      console.log(board);
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
       if (err)
         res.send(err)
       
