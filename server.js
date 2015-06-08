@@ -6,8 +6,8 @@ var express     = require('express'),
     port        = process.env.PORT || 5000;
 
 // Routes
-//var facebookAuth  = require('./routes/facebookAuth'),
-var boards        = require('./routes/boards');
+var facebookAuth  = require('./routes/facebookAuth'), 
+    boards        = require('./routes/boards');
 
 // Output (NB: must come BEFORE app.use(... routes))
 app.use(bodyParser.json());
@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Content-Length');
+  res.header('Access-Control-Allow-Headers', 
+    'Origin, X-Requested-With, Content-Type, Accept, Authentication, Content-Length');
 
   if ('OPTIONS' === req.method) {
     res.sendStatus(200);
@@ -26,7 +27,7 @@ app.use(function(req, res, next) {
 });
 
 // Prefix
-//app.use('/api/v1', facebookAuth);
+app.use('/api/v1', facebookAuth);
 app.use('/api/v1', boards);
 
 // Static files in public
