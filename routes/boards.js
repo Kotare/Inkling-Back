@@ -37,7 +37,7 @@ router.route('/boards/:boardId')
 
   // GET /boards/12345
   .get(function(req, res) {
-    Board.findById(req.params.boardId, function (err, board) {
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
       if (err)
         res.send(err);
 
@@ -47,7 +47,7 @@ router.route('/boards/:boardId')
 
   // PUT /boards/12345
   .put(function (req, res) {
-    Board.findById(req.params.boardId, function (err, board) {
+    Board.findOne({ fbId: req.fbUser }, function (err, board) {
       if (err)
         res.send(err)
       
