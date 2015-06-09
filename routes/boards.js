@@ -52,6 +52,7 @@ router.route('/boards/:boardId')
         res.send(err)
       
       for (prop in req.body) {
+        console.log(prop, " :: ", req.body[prop]);
         board[prop] = req.body[prop];
       }
 
