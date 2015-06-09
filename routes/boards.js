@@ -41,6 +41,7 @@ router.route('/boards/:boardId')
       if (err) 
         res.send(err);
 
+      console.log(JSON.stringify(board));
       res.json(board);
     });
   })
