@@ -4,16 +4,17 @@ var Schema = mongoose.Schema;
 var boardSchema = new Schema({
   fbId: String,
 	bubbles: [{
+    type: String,
 		bubbleId: String,
-		heading: String,
+    sourceUrl: String,
 		content: String,
 		location: {
 			top: Number,
 			left: Number
 		},
 		size: {
-			top: Number,
-			left: Number
+			height: String,
+			width: String
 		}
 	}],
 	connections: [{
