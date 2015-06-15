@@ -3,7 +3,7 @@ The API node server for Inkling (https://inkling.space).
 
 ## Team Members:
 * Luke Kavanagh
-* Olivia 
+* Olivia Baddeley
 * Juliet Brown
 * Rich Churcher
 * Esther Greatbatch
