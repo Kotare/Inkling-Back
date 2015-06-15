@@ -1,7 +1,7 @@
 {
-  "name": "crudbrain",
+  "name": "inkling",
   "version": "0.0.0",
-  "description": "CRUD, only for your brain.",
+  "description": "Inkling",
   "main": "server.js",
   "scripts": {
     "test": "test"
