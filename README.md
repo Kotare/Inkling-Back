@@ -1,13 +1,13 @@
-# CRUDbrain API Server
-The API node server for CRUDbrain!
+# Inkling API Server
+The API node server for Inkling (https://inkling.space).
 
 ## Team Members:
-* Luke
-* Olivia
-* Juliet
-* Rich
-* Esther
-* Pete
+* Luke Kavanagh
+* Olivia 
+* Juliet Brown
+* Rich Churcher
+* Esther Greatbatch
+* Pete Jacobson
 
 ## [Trello](https://trello.com/b/LLXoi7N5/crud-brain)
 
