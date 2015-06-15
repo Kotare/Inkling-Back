@@ -56,12 +56,13 @@ Response:
   "bubbles": [
     {
       "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
-      "heading": "idea#291",
+      "type": "image",
+      "sourceUrl": "https://36.media.tumblr.com/f97ed685271cff72b1775bee1d88d79f/tumblr_noh0igEt541qz8jg7o4_400.jpg",
       "content": "help, I'm stuck in a bubble",
       "_id": "5571116e1578f5ea505fe932", // mongo id key
       "size": {
-        "top": 91,
-        "left": 87
+        "height": "91px",
+        "width": "87px"
       },
       "location": {
         "top": 91,
@@ -95,12 +96,13 @@ Request:
   "bubbles": [
     {
       "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
-      "heading": "idea#291",
+      "type": "image",
+      "sourceUrl": "https://36.media.tumblr.com/f97ed685271cff72b1775bee1d88d79f/tumblr_noh0igEt541qz8jg7o4_400.jpg",
       "content": "help, I'm stuck in a bubble",
       "_id": "5571116e1578f5ea505fe932", // leave out if creating bubble, see below
       "size": {
-        "top": 91,
-        "left": 87
+        "height": "91px",
+        "width": "87px"
       },
       "location": {
         "top": 91,
@@ -109,12 +111,13 @@ Request:
     },
     {
       "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
-      "heading": "idea#291",
+      "type": "image",
+      "sourceUrl": "https://36.media.tumblr.com/f97ed685271cff72b1775bee1d88d79f/tumblr_noh0igEt541qz8jg7o4_400.jpg",
       "content": "help, I'm stuck in a bubble",
       // no _id for new bubble (generated in server by mongo)
       "size": {
-        "top": 91,
-        "left": 87
+        "height": "91px",
+        "width": "87px"
       },
       "location": {
         "top": 91,
@@ -142,12 +145,13 @@ Response:
   "bubbles": [
     {
       "bubbleId": "98723hooih2348", // bubble key for use in client/DOM
-      "heading": "idea#291",
+      "type": "image",
+      "sourceUrl": "https://36.media.tumblr.com/f97ed685271cff72b1775bee1d88d79f/tumblr_noh0igEt541qz8jg7o4_400.jpg",
       "content": "help, I'm stuck in a bubble",
       "_id": "5571116e1578f5ea505fe932", // mongo id key
       "size": {
-        "top": 91,
-        "left": 87
+        "height": "91px",
+        "width": "87px"
       },
       "location": {
         "top": 91,
